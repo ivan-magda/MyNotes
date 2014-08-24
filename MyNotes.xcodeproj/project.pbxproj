@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		5017AF9B19A9FD0600B96F57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9A19A9FD0600B96F57 /* main.m */; };
 		5017AF9E19A9FD0600B96F57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9D19A9FD0600B96F57 /* AppDelegate.m */; };
-		5017AFA119A9FD0600B96F57 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AFA019A9FD0600B96F57 /* ViewController.m */; };
 		5017AFA419A9FD0600B96F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5017AFA219A9FD0600B96F57 /* Main.storyboard */; };
 		5017AFA619A9FD0600B96F57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5017AFA519A9FD0600B96F57 /* Images.xcassets */; };
 		5017AFB219A9FD0700B96F57 /* MyNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AFB119A9FD0700B96F57 /* MyNotesTests.m */; };
+		506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */; };
+		506480AB19A9FFD70057C3C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AA19A9FFD70057C3C9 /* Note.m */; };
+		506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +33,17 @@
 		5017AF9A19A9FD0600B96F57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5017AF9C19A9FD0600B96F57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5017AF9D19A9FD0600B96F57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5017AF9F19A9FD0600B96F57 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5017AFA019A9FD0600B96F57 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5017AFA319A9FD0600B96F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5017AFA519A9FD0600B96F57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5017AFAB19A9FD0700B96F57 /* MyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5017AFB019A9FD0700B96F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5017AFB119A9FD0700B96F57 /* MyNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNotesTests.m; sourceTree = "<group>"; };
+		506480A619A9FE2F0057C3C9 /* AllNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllNotesViewController.h; sourceTree = "<group>"; };
+		506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllNotesViewController.m; sourceTree = "<group>"; };
+		506480A919A9FFD70057C3C9 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		506480AA19A9FFD70057C3C9 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNoteViewController.h; sourceTree = "<group>"; };
+		506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNoteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +87,13 @@
 			children = (
 				5017AF9C19A9FD0600B96F57 /* AppDelegate.h */,
 				5017AF9D19A9FD0600B96F57 /* AppDelegate.m */,
-				5017AF9F19A9FD0600B96F57 /* ViewController.h */,
-				5017AFA019A9FD0600B96F57 /* ViewController.m */,
 				5017AFA219A9FD0600B96F57 /* Main.storyboard */,
+				506480A619A9FE2F0057C3C9 /* AllNotesViewController.h */,
+				506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */,
+				506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */,
+				506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */,
+				506480A919A9FFD70057C3C9 /* Note.h */,
+				506480AA19A9FFD70057C3C9 /* Note.m */,
 				5017AFA519A9FD0600B96F57 /* Images.xcassets */,
 				5017AF9819A9FD0600B96F57 /* Supporting Files */,
 			);
@@ -214,9 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5017AFA119A9FD0600B96F57 /* ViewController.m in Sources */,
 				5017AF9E19A9FD0600B96F57 /* AppDelegate.m in Sources */,
+				506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */,
 				5017AF9B19A9FD0600B96F57 /* main.m in Sources */,
+				506480AB19A9FFD70057C3C9 /* Note.m in Sources */,
+				506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -319,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -401,6 +413,7 @@
 				5017AFB719A9FD0700B96F57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5017AFB819A9FD0700B96F57 /* Build configuration list for PBXNativeTarget "MyNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +422,7 @@
 				5017AFBA19A9FD0700B96F57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
