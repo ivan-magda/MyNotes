@@ -7,6 +7,7 @@
 //
 
 #import "DetailNoteViewController.h"
+#import "TextColor.h"
 #import "Note.h"
 
 @interface DetailNoteViewController ()
@@ -15,6 +16,7 @@
 
 @implementation DetailNoteViewController {
     NSDate *_date;
+    Note *_note;
 }
 
 - (void)viewDidLoad
@@ -28,12 +30,18 @@
         
         [self configTextForCurrentDateLabel];
         [self configTextViewHeight:self.textView];
+        
+        _note = self.itemToShow;
     } else {
         _date = [NSDate date];
         
         [self configTextForCurrentDateLabel];
         [self.textView becomeFirstResponder];
+        
+        _note = [[Note alloc]init];
+        _note.date = _date;
     }
+    [self updateTextColor];
 }
 
 - (void)configTextForCurrentDateLabel {
@@ -49,15 +57,21 @@
 
 - (IBAction)done:(UIBarButtonItem *)sender {
     if (self.itemToShow == nil) {
-        Note *note = [[Note alloc]init];
-        note.text = self.textView.text;
-        note.date = _date;
-        
-        [self.delegate detailNoteViewController:self didFinishAddingNote:note];
+        [self.delegate detailNoteViewController:self didFinishAddingNote:_note];
     } else {
-        self.itemToShow.text = self.textView.text;
+        self.itemToShow.text = _note.text;
+        self.itemToShow.textColor = _note.textColor;
         
         [self.delegate detailNoteViewController:self didFinishShowNote:self.itemToShow];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SelectColor"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        ColorSelectorViewController *controller = (ColorSelectorViewController *)navigationController.topViewController;
+        controller.delegate = self;
+        controller.noteToShow = _note;
     }
 }
 
@@ -80,6 +94,8 @@
     
     [self configTextViewHeight:textView];
     
+    _note.text = string;
+    
     return YES;
 }
 
@@ -93,6 +109,22 @@
     return YES;
 }
 
+#pragma mark - ColorSelectorViewControllerProtocol -
 
+- (void)updateTextColor {
+    UIColor *color = [UIColor colorWithRed:_note.textColor.redColor green:_note.textColor.greenColor blue:_note.textColor.blueColor alpha:_note.textColor.alphaColor];
+    self.textView.textColor = color;
+}
+
+- (void)colorSelectorViewControllerDidCancel:(ColorSelectorViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)colorSelectorViewController:(ColorSelectorViewController *)controller didFinishSelectColor:(TextColor *)color {
+    _note.textColor = color;
+    
+    [self updateTextColor];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

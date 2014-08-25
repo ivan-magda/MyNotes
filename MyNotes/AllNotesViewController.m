@@ -8,6 +8,7 @@
 
 #import "AllNotesViewController.h"
 #import "DataModel.h"
+#import "TextColor.h"
 #import "Note.h"
 
 static const NSUInteger kAllNotesTextCellLabel = 100;
@@ -59,6 +60,9 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 - (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
     UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesTextCellLabel];
     label.text = note.text;
+    
+    UIColor *color = [UIColor colorWithRed:note.textColor.redColor green:note.textColor.greenColor blue:note.textColor.blueColor alpha:note.textColor.alphaColor];
+    label.textColor = color;
     
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:kAllNotesDateCellLabel];
     
