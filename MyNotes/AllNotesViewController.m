@@ -64,21 +64,6 @@ static const NSUInteger kAllNotesCellDetailLabel = 101;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-}
-
-- (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
-    UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesCellLabel];
-    label.text = note.text;
-    
-    UILabel *detailLabel = (UILabel *)[cell viewWithTag:kAllNotesCellDetailLabel];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    detailLabel.text = [dateFormatter stringFromDate:note.date];
 }
 
 #pragma mark - Table view data source
@@ -96,7 +81,23 @@ static const NSUInteger kAllNotesCellDetailLabel = 101;
     
     [self configTextForCell:cell withNote:note];
     
+    cell.detailTextLabel.textColor = cell.detailTextLabel.tintColor;
+    
     return cell;
+}
+
+- (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
+    UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesCellLabel];
+    label.text = note.text;
+    
+    UILabel *detailLabel = (UILabel *)[cell viewWithTag:kAllNotesCellDetailLabel];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    detailLabel.text = [dateFormatter stringFromDate:note.date];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

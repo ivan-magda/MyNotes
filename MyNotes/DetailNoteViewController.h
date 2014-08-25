@@ -19,13 +19,13 @@
 
 @end
 
-@interface DetailNoteViewController : UIViewController <UITextFieldDelegate>
+@interface DetailNoteViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, weak) Note *itemToShow;
 
 @property (nonatomic, weak) id <DetailNoteViewControllerProtocol> delegate;
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *currentDate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
