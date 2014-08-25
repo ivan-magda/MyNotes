@@ -9,8 +9,8 @@
 #import "AllNotesViewController.h"
 #import "Note.h"
 
-static const NSUInteger kAllNotesCellLabel = 100;
-static const NSUInteger kAllNotesCellDetailLabel = 101;
+static const NSUInteger kAllNotesTextCellLabel = 100;
+static const NSUInteger kAllNotesDateCellLabel = 101;
 
 @interface AllNotesViewController ()
 
@@ -81,23 +81,22 @@ static const NSUInteger kAllNotesCellDetailLabel = 101;
     
     [self configTextForCell:cell withNote:note];
     
-    cell.detailTextLabel.textColor = cell.detailTextLabel.tintColor;
-    
     return cell;
 }
 
 - (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
-    UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesCellLabel];
+    UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesTextCellLabel];
     label.text = note.text;
     
-    UILabel *detailLabel = (UILabel *)[cell viewWithTag:kAllNotesCellDetailLabel];
+    UILabel *dateLabel = (UILabel *)[cell viewWithTag:kAllNotesDateCellLabel];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
-    detailLabel.text = [dateFormatter stringFromDate:note.date];
+    dateLabel.text = [dateFormatter stringFromDate:note.date];
+    dateLabel.textColor = dateLabel.tintColor;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
