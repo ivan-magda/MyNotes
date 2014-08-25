@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DetailNoteViewController.h"
 
-@interface AllNotesViewController : UITableViewController <DetailNoteViewControllerProtocol>
+@class DataModel;
+
+@interface AllNotesViewController : UITableViewController
+                                    <DetailNoteViewControllerProtocol, UINavigationControllerDelegate>
+
+@property (nonatomic, strong) DataModel *dataModel;
 
 @end

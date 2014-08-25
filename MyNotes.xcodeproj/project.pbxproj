@@ -12,6 +12,7 @@
 		5017AFA419A9FD0600B96F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5017AFA219A9FD0600B96F57 /* Main.storyboard */; };
 		5017AFA619A9FD0600B96F57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5017AFA519A9FD0600B96F57 /* Images.xcassets */; };
 		5017AFB219A9FD0700B96F57 /* MyNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AFB119A9FD0700B96F57 /* MyNotesTests.m */; };
+		503D5C7319AAE52B004C6821 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 503D5C7219AAE52B004C6821 /* DataModel.m */; };
 		506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */; };
 		506480AB19A9FFD70057C3C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AA19A9FFD70057C3C9 /* Note.m */; };
 		506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */; };
@@ -38,6 +39,8 @@
 		5017AFAB19A9FD0700B96F57 /* MyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5017AFB019A9FD0700B96F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5017AFB119A9FD0700B96F57 /* MyNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNotesTests.m; sourceTree = "<group>"; };
+		503D5C7119AAE52B004C6821 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		503D5C7219AAE52B004C6821 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		506480A619A9FE2F0057C3C9 /* AllNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllNotesViewController.h; sourceTree = "<group>"; };
 		506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllNotesViewController.m; sourceTree = "<group>"; };
 		506480A919A9FFD70057C3C9 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */,
 				506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */,
 				506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */,
+				503D5C7119AAE52B004C6821 /* DataModel.h */,
+				503D5C7219AAE52B004C6821 /* DataModel.m */,
 				506480A919A9FFD70057C3C9 /* Note.h */,
 				506480AA19A9FFD70057C3C9 /* Note.m */,
 				5017AFA519A9FD0600B96F57 /* Images.xcassets */,
@@ -229,6 +234,7 @@
 				5017AF9B19A9FD0600B96F57 /* main.m in Sources */,
 				506480AB19A9FFD70057C3C9 /* Note.m in Sources */,
 				506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */,
+				503D5C7319AAE52B004C6821 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

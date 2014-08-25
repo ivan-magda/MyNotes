@@ -83,4 +83,16 @@
     return YES;
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    BOOL firstEditing = [[NSUserDefaults standardUserDefaults]boolForKey:@"TextViewBeginEditFirstTime"];
+    if (firstEditing) {
+        textView.text = @"";
+        [[NSUserDefaults standardUserDefaults]setBool:NO
+                                               forKey:@"TextViewBeginEditFirstTime"];
+    }
+    return YES;
+}
+
+
+
 @end

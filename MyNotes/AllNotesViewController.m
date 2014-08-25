@@ -7,6 +7,7 @@
 //
 
 #import "AllNotesViewController.h"
+#import "DataModel.h"
 #import "Note.h"
 
 static const NSUInteger kAllNotesTextCellLabel = 100;
@@ -16,68 +17,39 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 
 @end
 
-@implementation AllNotesViewController {
-    NSMutableArray *_notes;
-}
-
-- (NSString *)documentsDirectory {
-    NSArray *array = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [array firstObject];
-}
-
-- (NSString *)dataFilePath {
-    return [[self documentsDirectory]stringByAppendingPathComponent:@"Notes.plist"];
-}
-
-- (void)saveToFile {
-    NSMutableData *data = [[NSMutableData alloc]init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
-    
-    [archiver encodeObject:_notes forKey:@"Notes"];
-    [archiver finishEncoding];
-    
-    [data writeToFile:[self dataFilePath] atomically:NO];
-}
-
-- (void)loadFromFile {
-    NSString *dataFilePath = [self dataFilePath];
-    
-    if ([[NSFileManager defaultManager]fileExistsAtPath:dataFilePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:dataFilePath];
-        
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc]
-                                         initForReadingWithData:data];
-        _notes = [unarchiver decodeObjectForKey:@"Notes"];
-        [unarchiver finishDecoding];
-    } else {
-        _notes = [[NSMutableArray alloc]initWithCapacity:20];
-    }
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self loadFromFile];
-    }
-    return self;
-}
+@implementation AllNotesViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.navigationController.delegate = self;
+    
+    NSInteger index = [self.dataModel indexOfSelectedNote];
+    
+    if (index >= 0 && index < [self.dataModel.notes count]) {
+        Note *note = self.dataModel.notes[index];
+        
+        [self performSegueWithIdentifier:@"ShowNote" sender:note];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_notes count];
+    return [self.dataModel.notes count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
     
-    Note *note = _notes[indexPath.row];
+    Note *note = self.dataModel.notes[indexPath.row];
     
     [self configTextForCell:cell withNote:note];
     
@@ -102,11 +74,10 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_notes removeObjectAtIndex:indexPath.row];
+        [self.dataModel.notes removeObjectAtIndex:indexPath.row];
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-    [self saveToFile];
 }
 
 #pragma mark - Navigation
@@ -127,27 +98,27 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Note *note = _notes[indexPath.row];
+    [self.dataModel setIndexOfSelectedNote:indexPath.row];
+    
+    Note *note = self.dataModel.notes[indexPath.row];
     
     [self performSegueWithIdentifier:@"ShowNote" sender:note];
 }
 
 - (void)detailNoteViewController:(DetailNoteViewController *)controller didFinishAddingNote:(Note *)note {
-    NSInteger newIndex = [_notes count];
+    NSInteger newIndex = [self.dataModel.notes count];
     
-    [_notes addObject:note];
+    [self.dataModel.notes addObject:note];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newIndex inSection:0];
     
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self.navigationController popViewControllerAnimated:YES];
-    
-    [self saveToFile];
 }
 
 - (void)detailNoteViewController:(DetailNoteViewController *)controller didFinishShowNote:(Note *)note {
-    NSInteger index = [_notes indexOfObject:note];
+    NSInteger index = [self.dataModel.notes indexOfObject:note];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     
@@ -156,8 +127,14 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
     [self configTextForCell:cell withNote:note];
     
     [self.navigationController popViewControllerAnimated:YES];
-    
-    [self saveToFile];
+}
+
+#pragma mark - Navigation controler delegate -
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (viewController == self) {
+        [self.dataModel setIndexOfSelectedNote:-1];
+    }
 }
 
 @end
