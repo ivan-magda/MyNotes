@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) TextColor *textColor;
 @property (nonatomic, assign) NSInteger textSize;
+@property (nonatomic, copy) NSString *textFamily;
 
 @end

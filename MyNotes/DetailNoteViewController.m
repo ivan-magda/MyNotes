@@ -10,6 +10,8 @@
 #import "TextColor.h"
 #import "Note.h"
 
+static const NSInteger kCheckTextViewToAdjustHeight = 37;
+
 @interface DetailNoteViewController ()
 
 @end
@@ -36,6 +38,7 @@
         _note.text = self.itemToShow.text;
         _note.date = self.itemToShow.date;
         _note.textSize = self.itemToShow.textSize;
+        _note.textFamily = self.itemToShow.textFamily;
         _note.textColor = [[TextColor alloc]initWithColorsRed:
                                                       self.itemToShow.textColor.redColor
                                                 green:self.itemToShow.textColor.greenColor
@@ -50,8 +53,9 @@
         _note = [[Note alloc]init];
         _note.date = _date;
     }
+    self.textView.backgroundColor = [UIColor clearColor];
     [self updateTextColor];
-    [self updateTextSize];
+    [self updateFont];
 }
 
 - (void)configTextForCurrentDateLabel {
@@ -72,12 +76,14 @@
         self.itemToShow.text = _note.text;
         self.itemToShow.textColor = _note.textColor;
         self.itemToShow.textSize = _note.textSize;
+        self.itemToShow.textFamily = _note.textFamily;
         
-        [self.delegate detailNoteViewController:self didFinishShowNote:self.itemToShow];
         if ([self firstTimeExperience]) {
             [[NSUserDefaults standardUserDefaults]setBool:NO
                                                    forKey:@"TextViewBeginEditFirstTime"];
         }
+        
+        [self.delegate detailNoteViewController:self didFinishShowNote:self.itemToShow];
     }
 }
 
@@ -85,6 +91,7 @@
     if ([segue.identifier isEqualToString:@"SelectColor"]) {
         UINavigationController *navigationController = segue.destinationViewController;
         CustomizeNoteViewController *controller = (CustomizeNoteViewController *)navigationController.topViewController;
+        
         controller.delegate = self;
         controller.noteToShow = _note;
     }
@@ -93,8 +100,6 @@
 #pragma mark - Text View delegate -
 
 - (void)configTextViewHeight:(UITextView *)textView {
-    static const NSInteger kCheckTextViewToAdjustHeight = 37;
-    
     if ([textView.text length] > kCheckTextViewToAdjustHeight) {
         CGRect frame = self.textView.frame;
         frame.size.height = self.textView.contentSize.height;
@@ -134,20 +139,21 @@
     self.textView.textColor = color;
 }
 
-- (void)updateTextSize {
-    self.textView.font = [UIFont systemFontOfSize:(CGFloat)_note.textSize];
+- (void)updateFont {
+    self.textView.font = [UIFont fontWithName:_note.textFamily size:(CGFloat)_note.textSize];
 }
 
 - (void)customizeNoteViewControllerDidCancel:(CustomizeNoteViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color andTextSize:(NSInteger)textSize {
+- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color textSize:(NSInteger)textSize andFamily:(NSString *)family {
     _note.textColor = color;
     _note.textSize = textSize;
+    _note.textFamily = family;
     
     [self updateTextColor];
-    [self updateTextSize];
+    [self updateFont];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

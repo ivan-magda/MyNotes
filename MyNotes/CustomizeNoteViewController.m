@@ -19,17 +19,23 @@ static const NSInteger kNumberOfTextSizes = 19;
 
 @implementation CustomizeNoteViewController {
     TextColor *_textColor;
-    NSInteger _textSize;
+    NSInteger _fontSize;
+    NSArray *_textFamily;
+    NSString *_fontName;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    _textFamily = [UIFont familyNames];
+    
     self.textLabel.text = self.noteToShow.text;
     
-    _textSize = self.noteToShow.textSize;
-    [self.picker selectRow:_textSize - 1 inComponent:0 animated:NO];
+    _fontSize = self.noteToShow.textSize;
+    _fontName = self.noteToShow.textFamily;
+    [self.picker selectRow:_fontSize - 1 inComponent:0 animated:NO];
+    [self.picker selectRow:[_textFamily indexOfObject:_fontName] inComponent:1 animated:NO];
     
     _textColor = [[TextColor alloc]initWithColorsRed:self.noteToShow.textColor.redColor
                                                green:self.noteToShow.textColor.greenColor
@@ -37,7 +43,7 @@ static const NSInteger kNumberOfTextSizes = 19;
                                                alpha:self.noteToShow.textColor.alphaColor];
     
     [self updateTextColor];
-    [self updateTextSize];
+    [self updateFontForText];
     [self updateValuesOfColorSliders];
 }
 
@@ -47,7 +53,7 @@ static const NSInteger kNumberOfTextSizes = 19;
 }
 
 - (IBAction)done:(UIBarButtonItem *)sender {
-    [self.delegate customizeNoteViewController:self didFinishSelectColor:_textColor andTextSize:_textSize];
+    [self.delegate customizeNoteViewController:self didFinishSelectColor:_textColor textSize:_fontSize andFamily:_fontName];
 }
 
 - (void)updateTextColor {
@@ -56,6 +62,10 @@ static const NSInteger kNumberOfTextSizes = 19;
                                      blue:_textColor.blueColor
                                      alpha:_textColor.alphaColor];
     self.textLabel.textColor = color;
+}
+
+- (void)updateFontForText {
+    self.textLabel.font = [UIFont fontWithName:_fontName size:(CGFloat)_fontSize];
 }
 
 - (void)updateValuesOfColorSliders {
@@ -88,29 +98,46 @@ static const NSInteger kNumberOfTextSizes = 19;
     [self updateTextColor];
 }
 
-- (void)updateTextSize {
-    self.textLabel.font = [UIFont systemFontOfSize:(CGFloat)_textSize];
-}
-
 #pragma mark - PickerViewDataSource -
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return kNumberOfTextSizes;
+    if (component == 0) {
+        return kNumberOfTextSizes;
+    } else {
+        return [_textFamily count];
+    }
 }
 
 #pragma mark - UIPickerViewDelegate -
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%ld", (long)(row + 1)];
+    if (component == 0) {
+        return [NSString stringWithFormat:@"%ld", (long)(row + 1)];
+    } else {
+        return _textFamily[row];
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    _textSize = row + 1;
-    [self updateTextSize];
+    if (component == 0) {
+        _fontSize = row + 1;
+        [self updateFontForText];
+    } else {
+        _fontName = _textFamily[row];
+        [self updateFontForText];
+    }
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if (component == 0) {
+        return 40.;
+    } else {
+        return 270.;
+    }
 }
 
 

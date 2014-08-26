@@ -16,7 +16,7 @@
 
 - (void)customizeNoteViewControllerDidCancel:(CustomizeNoteViewController *)controller;
 
-- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color andTextSize:(NSInteger)textSize;
+- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color textSize:(NSInteger)textSize andFamily:(NSString *)family;
 
 @end
 
@@ -42,7 +42,5 @@
 @property (weak, nonatomic) IBOutlet UISlider *alphaColorSlider;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
-
-
 
 @end
