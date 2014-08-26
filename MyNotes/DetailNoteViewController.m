@@ -23,7 +23,8 @@
 {
     [super viewDidLoad];
     
-    if (self.itemToShow) {
+    if (self.itemToShow)
+    {
         _date = self.itemToShow.date;
         self.textView.text = self.itemToShow.text;
         self.doneButton.enabled = YES;
@@ -31,7 +32,15 @@
         [self configTextForCurrentDateLabel];
         [self configTextViewHeight:self.textView];
         
-        _note = self.itemToShow;
+        _note = [[Note alloc]init];
+        _note.text = self.itemToShow.text;
+        _note.date = self.itemToShow.date;
+        _note.textSize = self.itemToShow.textSize;
+        _note.textColor = [[TextColor alloc]initWithColorsRed:
+                                                      self.itemToShow.textColor.redColor
+                                                green:self.itemToShow.textColor.greenColor
+                                                blue:self.itemToShow.textColor.blueColor
+                                                alpha:self.itemToShow.textColor.alphaColor];
     } else {
         _date = [NSDate date];
         
@@ -42,6 +51,7 @@
         _note.date = _date;
     }
     [self updateTextColor];
+    [self updateTextSize];
 }
 
 - (void)configTextForCurrentDateLabel {
@@ -61,15 +71,20 @@
     } else {
         self.itemToShow.text = _note.text;
         self.itemToShow.textColor = _note.textColor;
+        self.itemToShow.textSize = _note.textSize;
         
         [self.delegate detailNoteViewController:self didFinishShowNote:self.itemToShow];
+        if ([self firstTimeExperience]) {
+            [[NSUserDefaults standardUserDefaults]setBool:NO
+                                                   forKey:@"TextViewBeginEditFirstTime"];
+        }
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SelectColor"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        ColorSelectorViewController *controller = (ColorSelectorViewController *)navigationController.topViewController;
+        CustomizeNoteViewController *controller = (CustomizeNoteViewController *)navigationController.topViewController;
         controller.delegate = self;
         controller.noteToShow = _note;
     }
@@ -100,13 +115,16 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    BOOL firstEditing = [[NSUserDefaults standardUserDefaults]boolForKey:@"TextViewBeginEditFirstTime"];
-    if (firstEditing) {
+    if ([self firstTimeExperience]) {
         textView.text = @"";
         [[NSUserDefaults standardUserDefaults]setBool:NO
                                                forKey:@"TextViewBeginEditFirstTime"];
     }
     return YES;
+}
+
+- (BOOL)firstTimeExperience {
+    return [[NSUserDefaults standardUserDefaults]boolForKey:@"TextViewBeginEditFirstTime"];
 }
 
 #pragma mark - ColorSelectorViewControllerProtocol -
@@ -116,14 +134,20 @@
     self.textView.textColor = color;
 }
 
-- (void)colorSelectorViewControllerDidCancel:(ColorSelectorViewController *)controller {
+- (void)updateTextSize {
+    self.textView.font = [UIFont systemFontOfSize:(CGFloat)_note.textSize];
+}
+
+- (void)customizeNoteViewControllerDidCancel:(CustomizeNoteViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)colorSelectorViewController:(ColorSelectorViewController *)controller didFinishSelectColor:(TextColor *)color {
+- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color andTextSize:(NSInteger)textSize {
     _note.textColor = color;
+    _note.textSize = textSize;
     
     [self updateTextColor];
+    [self updateTextSize];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

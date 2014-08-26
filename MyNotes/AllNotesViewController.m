@@ -60,6 +60,7 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 - (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
     UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesTextCellLabel];
     label.text = note.text;
+    label.font = [UIFont systemFontOfSize:note.textSize];
     
     UIColor *color = [UIColor colorWithRed:note.textColor.redColor green:note.textColor.greenColor blue:note.textColor.blueColor alpha:note.textColor.alphaColor];
     label.textColor = color;

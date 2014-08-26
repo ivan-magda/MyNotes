@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5008192C19AB1D810001DA4F /* ColorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192B19AB1D810001DA4F /* ColorSelectorViewController.m */; };
+		5008192C19AB1D810001DA4F /* CustomizeNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */; };
 		5008192F19AB28A80001DA4F /* TextColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192E19AB28A80001DA4F /* TextColor.m */; };
 		5017AF9B19A9FD0600B96F57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9A19A9FD0600B96F57 /* main.m */; };
 		5017AF9E19A9FD0600B96F57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9D19A9FD0600B96F57 /* AppDelegate.m */; };
@@ -31,8 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5008192A19AB1D810001DA4F /* ColorSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectorViewController.h; sourceTree = "<group>"; };
-		5008192B19AB1D810001DA4F /* ColorSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSelectorViewController.m; sourceTree = "<group>"; };
+		5008192A19AB1D810001DA4F /* CustomizeNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizeNoteViewController.h; sourceTree = "<group>"; };
+		5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomizeNoteViewController.m; sourceTree = "<group>"; };
 		5008192D19AB28A80001DA4F /* TextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextColor.h; sourceTree = "<group>"; };
 		5008192E19AB28A80001DA4F /* TextColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextColor.m; sourceTree = "<group>"; };
 		5017AF9519A9FD0600B96F57 /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,8 +101,8 @@
 				506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */,
 				506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */,
 				506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */,
-				5008192A19AB1D810001DA4F /* ColorSelectorViewController.h */,
-				5008192B19AB1D810001DA4F /* ColorSelectorViewController.m */,
+				5008192A19AB1D810001DA4F /* CustomizeNoteViewController.h */,
+				5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */,
 				503D5C7119AAE52B004C6821 /* DataModel.h */,
 				503D5C7219AAE52B004C6821 /* DataModel.m */,
 				506480A919A9FFD70057C3C9 /* Note.h */,
@@ -245,7 +245,7 @@
 				5017AF9B19A9FD0600B96F57 /* main.m in Sources */,
 				506480AB19A9FFD70057C3C9 /* Note.m in Sources */,
 				506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */,
-				5008192C19AB1D810001DA4F /* ColorSelectorViewController.m in Sources */,
+				5008192C19AB1D810001DA4F /* CustomizeNoteViewController.m in Sources */,
 				503D5C7319AAE52B004C6821 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

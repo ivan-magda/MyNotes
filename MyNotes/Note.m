@@ -16,6 +16,7 @@
         _text = @"test";
         _date = [NSDate date];
         _textColor = [[TextColor alloc]init];
+        _textSize = 17;
     }
     return self;
 }
@@ -25,6 +26,7 @@
         self.text = [aDecoder decodeObjectForKey:@"Text"];
         self.date = [aDecoder decodeObjectForKey:@"Date"];
         self.textColor = [aDecoder decodeObjectForKey:@"Text Color"];
+        self.textSize = [aDecoder decodeIntegerForKey:@"Text Size"];
     }
     return self;
 }
@@ -33,6 +35,7 @@
     [aCoder encodeObject:self.text forKey:@"Text"];
     [aCoder encodeObject:self.date forKey:@"Date"];
     [aCoder encodeObject:self.textColor forKey:@"Text Color"];
+    [aCoder encodeInteger:self.textSize forKey:@"Text Size"];
 }
 
 @end

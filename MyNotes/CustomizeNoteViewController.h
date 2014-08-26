@@ -1,5 +1,5 @@
 //
-//  ColorSelectorViewController.h
+//  CustomizeNoteViewController.h
 //  MyNotes
 //
 //  Created by Ivan Magda on 25.08.14.
@@ -8,24 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@class ColorSelectorViewController;
+@class CustomizeNoteViewController;
 @class TextColor;
 @class Note;
 
-@protocol ColorSelectorViewControllerProtocol <NSObject>
+@protocol CustomizeNoteViewControllerProtocol <NSObject>
 
-- (void)colorSelectorViewControllerDidCancel:(ColorSelectorViewController *)controller;
+- (void)customizeNoteViewControllerDidCancel:(CustomizeNoteViewController *)controller;
 
-- (void)colorSelectorViewController:(ColorSelectorViewController *)controller didFinishSelectColor:(TextColor *)color;
+- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color andTextSize:(NSInteger)textSize;
 
 @end
 
-@interface ColorSelectorViewController : UIViewController
+@interface CustomizeNoteViewController : UIViewController <UIPickerViewDelegate,
+                                                           UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @property (nonatomic, weak) Note *noteToShow;
-@property (nonatomic, weak) id <ColorSelectorViewControllerProtocol> delegate;
+@property (nonatomic, weak) id <CustomizeNoteViewControllerProtocol> delegate;
 
 - (IBAction)cancel:(UIBarButtonItem *)sender;
 - (IBAction)done:(UIBarButtonItem *)sender;
@@ -39,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *greenColorSlider;
 @property (weak, nonatomic) IBOutlet UISlider *blueColorSlider;
 @property (weak, nonatomic) IBOutlet UISlider *alphaColorSlider;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 
 

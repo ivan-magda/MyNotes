@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, strong) NSDate *date;
-
 @property (nonatomic, strong) TextColor *textColor;
+@property (nonatomic, assign) NSInteger textSize;
 
 @end

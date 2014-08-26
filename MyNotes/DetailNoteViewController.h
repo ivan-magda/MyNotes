@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ColorSelectorViewController.h"
+#import "CustomizeNoteViewController.h"
 
 @class DetailNoteViewController;
 @class Note;
@@ -21,7 +21,7 @@
 @end
 
 @interface DetailNoteViewController : UIViewController <UITextViewDelegate,
-                                                        ColorSelectorViewControllerProtocol>
+                                                        CustomizeNoteViewControllerProtocol>
 
 @property (nonatomic, weak) Note *itemToShow;
 
