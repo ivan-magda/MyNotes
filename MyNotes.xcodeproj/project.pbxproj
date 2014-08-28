@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5008192C19AB1D810001DA4F /* CustomizeNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */; };
+		5008192C19AB1D810001DA4F /* ColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192B19AB1D810001DA4F /* ColorSelectViewController.m */; };
 		5008192F19AB28A80001DA4F /* TextColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008192E19AB28A80001DA4F /* TextColor.m */; };
 		5017AF9B19A9FD0600B96F57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9A19A9FD0600B96F57 /* main.m */; };
 		5017AF9E19A9FD0600B96F57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017AF9D19A9FD0600B96F57 /* AppDelegate.m */; };
@@ -18,6 +18,7 @@
 		506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */; };
 		506480AB19A9FFD70057C3C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AA19A9FFD70057C3C9 /* Note.m */; };
 		506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */; };
+		50FE1E5319AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE1E5219AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5008192A19AB1D810001DA4F /* CustomizeNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizeNoteViewController.h; sourceTree = "<group>"; };
-		5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomizeNoteViewController.m; sourceTree = "<group>"; };
+		5008192A19AB1D810001DA4F /* ColorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSelectViewController.h; sourceTree = "<group>"; };
+		5008192B19AB1D810001DA4F /* ColorSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSelectViewController.m; sourceTree = "<group>"; };
 		5008192D19AB28A80001DA4F /* TextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextColor.h; sourceTree = "<group>"; };
 		5008192E19AB28A80001DA4F /* TextColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextColor.m; sourceTree = "<group>"; };
 		5017AF9519A9FD0600B96F57 /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +54,8 @@
 		506480AA19A9FFD70057C3C9 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNoteViewController.h; sourceTree = "<group>"; };
 		506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNoteViewController.m; sourceTree = "<group>"; };
+		50FE1E5119AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ColorSelectUpdateColor.h"; sourceTree = "<group>"; };
+		50FE1E5219AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ColorSelectUpdateColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +104,13 @@
 				506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */,
 				506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */,
 				506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */,
-				5008192A19AB1D810001DA4F /* CustomizeNoteViewController.h */,
-				5008192B19AB1D810001DA4F /* CustomizeNoteViewController.m */,
 				503D5C7119AAE52B004C6821 /* DataModel.h */,
 				503D5C7219AAE52B004C6821 /* DataModel.m */,
 				506480A919A9FFD70057C3C9 /* Note.h */,
 				506480AA19A9FFD70057C3C9 /* Note.m */,
 				5008192D19AB28A80001DA4F /* TextColor.h */,
 				5008192E19AB28A80001DA4F /* TextColor.m */,
+				50FE1E4D19AF5D03009E1FBB /* SelectColor */,
 				5017AFA519A9FD0600B96F57 /* Images.xcassets */,
 				5017AF9819A9FD0600B96F57 /* Supporting Files */,
 			);
@@ -139,6 +141,17 @@
 				5017AFB019A9FD0700B96F57 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50FE1E4D19AF5D03009E1FBB /* SelectColor */ = {
+			isa = PBXGroup;
+			children = (
+				5008192A19AB1D810001DA4F /* ColorSelectViewController.h */,
+				5008192B19AB1D810001DA4F /* ColorSelectViewController.m */,
+				50FE1E5119AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.h */,
+				50FE1E5219AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m */,
+			);
+			name = SelectColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +258,9 @@
 				5017AF9B19A9FD0600B96F57 /* main.m in Sources */,
 				506480AB19A9FFD70057C3C9 /* Note.m in Sources */,
 				506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */,
-				5008192C19AB1D810001DA4F /* CustomizeNoteViewController.m in Sources */,
+				5008192C19AB1D810001DA4F /* ColorSelectViewController.m in Sources */,
 				503D5C7319AAE52B004C6821 /* DataModel.m in Sources */,
+				50FE1E5319AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

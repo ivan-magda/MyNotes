@@ -11,21 +11,15 @@
 @implementation TextColor
 
 - (instancetype)init {
-    if (self = [super init]) {
-        _redColor = 0.;
-        _greenColor = 0.;
-        _blueColor = 0.;
-        _alphaColor = 1.;
-    }
-    return self;
+    return [self initWithColorsRed:0.0 green:0.0 blue:0.0];
 }
 
-- (id)initWithColorsRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha {
+- (id)initWithColorsRed:(float)red green:(float)green blue:(float)blue {
     if (self = [super init]) {
-        _redColor = red;
-        _greenColor = green;
-        _blueColor = blue;
-        _alphaColor = alpha;
+        self.redColor = red;
+        self.greenColor = green;
+        self.blueColor = blue;
+        self.alphaColor = 1.0;
     }
     return self;
 }

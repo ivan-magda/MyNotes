@@ -17,7 +17,6 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
 @end
 
 @implementation DetailNoteViewController {
-    NSDate *_date;
     Note *_note;
 }
 
@@ -27,7 +26,6 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     
     if (self.itemToShow)
     {
-        _date = self.itemToShow.date;
         self.textView.text = self.itemToShow.text;
         self.doneButton.enabled = YES;
         
@@ -42,16 +40,13 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
         _note.textColor = [[TextColor alloc]initWithColorsRed:
                                                       self.itemToShow.textColor.redColor
                                                 green:self.itemToShow.textColor.greenColor
-                                                blue:self.itemToShow.textColor.blueColor
-                                                alpha:self.itemToShow.textColor.alphaColor];
+                                                blue:self.itemToShow.textColor.blueColor];
     } else {
-        _date = [NSDate date];
+        _note = [[Note alloc]init];
+        _note.date = [NSDate date];
         
         [self configTextForCurrentDateLabel];
         [self.textView becomeFirstResponder];
-        
-        _note = [[Note alloc]init];
-        _note.date = _date;
     }
     self.textView.backgroundColor = [UIColor clearColor];
     [self updateTextColor];
@@ -64,7 +59,7 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
-    self.currentDate.text = [dateFormatter stringFromDate:_date];
+    self.currentDate.text = [dateFormatter stringFromDate:_note.date];
     self.currentDate.textColor = self.currentDate.tintColor;
 }
 
@@ -90,16 +85,17 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SelectColor"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        CustomizeNoteViewController *controller = (CustomizeNoteViewController *)navigationController.topViewController;
+        ColorSelectViewController *controller = (ColorSelectViewController *)navigationController.topViewController;
         
         controller.delegate = self;
-        controller.noteToShow = _note;
+        controller.textColorToShow = _note.textColor;
     }
 }
 
 #pragma mark - Text View delegate -
 
-- (void)configTextViewHeight:(UITextView *)textView {
+- (void)configTextViewHeight:(UITextView *)textView
+{
     if ([textView.text length] > kCheckTextViewToAdjustHeight) {
         CGRect frame = self.textView.frame;
         frame.size.height = self.textView.contentSize.height;
@@ -107,7 +103,8 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
     NSString *string = [textView.text stringByReplacingCharactersInRange:range
                                                               withString:text];
     self.doneButton.enabled = ([string length] > 0);
@@ -143,17 +140,14 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     self.textView.font = [UIFont fontWithName:_note.textFamily size:(CGFloat)_note.textSize];
 }
 
-- (void)customizeNoteViewControllerDidCancel:(CustomizeNoteViewController *)controller {
+- (void)colorSelectViewControllerDidCancel:(ColorSelectViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)customizeNoteViewController:(CustomizeNoteViewController *)controller didFinishSelectColor:(TextColor *)color textSize:(NSInteger)textSize andFamily:(NSString *)family {
+- (void)colorSelectViewController:(ColorSelectViewController *)controller didFinishSelectColor:(TextColor *)color {
     _note.textColor = color;
-    _note.textSize = textSize;
-    _note.textFamily = family;
     
     [self updateTextColor];
-    [self updateFont];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

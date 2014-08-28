@@ -57,7 +57,8 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
     return cell;
 }
 
-- (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note {
+- (void)configTextForCell:(UITableViewCell *)cell withNote:(Note *)note
+{
     UILabel *label = (UILabel *)[cell viewWithTag:kAllNotesTextCellLabel];
     label.text = note.text;
     label.font = [UIFont fontWithName:note.textFamily size:(CGFloat)note.textSize];
@@ -136,7 +137,8 @@ static const NSUInteger kAllNotesDateCellLabel = 101;
 
 #pragma mark - Navigation controler delegate -
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
     if (viewController == self) {
         [self.dataModel setIndexOfSelectedNote:-1];
     }

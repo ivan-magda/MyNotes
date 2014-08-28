@@ -13,6 +13,6 @@
 @property (nonatomic, assign) float redColor, greenColor,
                                     blueColor, alphaColor;
 
-- (id)initWithColorsRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
+- (id)initWithColorsRed:(float)red green:(float)green blue:(float)blue;
 
 @end
