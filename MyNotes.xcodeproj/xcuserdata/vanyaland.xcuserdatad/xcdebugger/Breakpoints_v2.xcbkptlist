@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyNotes/ColorSelectViewController.m"
-            timestampString = "430925506.206425"
+            timestampString = "430959501.054085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-done:"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyNotes/DetailNoteViewController.m"
-            timestampString = "430922322.381474"
+            timestampString = "430960916.912615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-colorSelectViewController:didFinishSelectColor:"
             landmarkType = "5">
          </BreakpointContent>

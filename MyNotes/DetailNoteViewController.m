@@ -10,7 +10,7 @@
 #import "TextColor.h"
 #import "Note.h"
 
-static const NSInteger kCheckTextViewToAdjustHeight = 37;
+//static const NSInteger kCheckTextViewToAdjustHeight = 37;
 
 @interface DetailNoteViewController ()
 
@@ -29,9 +29,6 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
         self.textView.text = self.itemToShow.text;
         self.doneButton.enabled = YES;
         
-        [self configTextForCurrentDateLabel];
-        [self configTextViewHeight:self.textView];
-        
         _note = [[Note alloc]init];
         _note.text = self.itemToShow.text;
         _note.date = self.itemToShow.date;
@@ -41,6 +38,8 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
                                                       self.itemToShow.textColor.redColor
                                                 green:self.itemToShow.textColor.greenColor
                                                 blue:self.itemToShow.textColor.blueColor];
+        [self configTextForCurrentDateLabel];
+        //[self configTextViewHeight:self.textView];
     } else {
         _note = [[Note alloc]init];
         _note.date = [NSDate date];
@@ -89,19 +88,24 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
         
         controller.delegate = self;
         controller.textColorToShow = _note.textColor;
+    } else if ([segue.destinationViewController isKindOfClass:[FontSelectViewController class]]) {
+        FontSelectViewController *controller = segue.destinationViewController;
+        
+        controller.delegate = self;
+        controller.colorToShow = _note.textColor;
     }
 }
 
 #pragma mark - Text View delegate -
 
-- (void)configTextViewHeight:(UITextView *)textView
-{
-    if ([textView.text length] > kCheckTextViewToAdjustHeight) {
-        CGRect frame = self.textView.frame;
-        frame.size.height = self.textView.contentSize.height;
-        self.textView.frame = frame;
-    }
-}
+//- (void)configTextViewHeight:(UITextView *)textView
+//{
+//    if ([textView.text length] > kCheckTextViewToAdjustHeight) {
+//        CGRect frame = self.textView.frame;
+//        frame.size.height = self.textView.contentSize.height;
+//        self.textView.frame = frame;
+//    }
+//}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -109,7 +113,7 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
                                                               withString:text];
     self.doneButton.enabled = ([string length] > 0);
     
-    [self configTextViewHeight:textView];
+    //[self configTextViewHeight:textView];
     
     _note.text = string;
     
@@ -124,6 +128,7 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     }
     return YES;
 }
+
 
 - (BOOL)firstTimeExperience {
     return [[NSUserDefaults standardUserDefaults]boolForKey:@"TextViewBeginEditFirstTime"];
@@ -149,6 +154,15 @@ static const NSInteger kCheckTextViewToAdjustHeight = 37;
     
     [self updateTextColor];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - FontSelectViewControllerProtocol -
+
+- (void)fontSelectViewController:(FontSelectViewController *)controller didFinishSelectFont:(NSString *)fontName {
+    _note.textFamily = fontName;
+    
+    [self updateFont];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

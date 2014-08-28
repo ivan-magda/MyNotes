@@ -18,6 +18,7 @@
 		506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */; };
 		506480AB19A9FFD70057C3C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AA19A9FFD70057C3C9 /* Note.m */; };
 		506480AE19AA078F0057C3C9 /* DetailNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */; };
+		5088797E19AFE9BD0051F4F6 /* FontSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5088797D19AFE9BD0051F4F6 /* FontSelectViewController.m */; };
 		50FE1E5319AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE1E5219AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		506480AA19A9FFD70057C3C9 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNoteViewController.h; sourceTree = "<group>"; };
 		506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNoteViewController.m; sourceTree = "<group>"; };
+		5088797C19AFE9BD0051F4F6 /* FontSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSelectViewController.h; sourceTree = "<group>"; };
+		5088797D19AFE9BD0051F4F6 /* FontSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSelectViewController.m; sourceTree = "<group>"; };
 		50FE1E5119AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ColorSelectUpdateColor.h"; sourceTree = "<group>"; };
 		50FE1E5219AF64A2009E1FBB /* UIImageView+ColorSelectUpdateColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ColorSelectUpdateColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,12 +107,9 @@
 				506480A719A9FE2F0057C3C9 /* AllNotesViewController.m */,
 				506480AC19AA078F0057C3C9 /* DetailNoteViewController.h */,
 				506480AD19AA078F0057C3C9 /* DetailNoteViewController.m */,
-				503D5C7119AAE52B004C6821 /* DataModel.h */,
-				503D5C7219AAE52B004C6821 /* DataModel.m */,
-				506480A919A9FFD70057C3C9 /* Note.h */,
-				506480AA19A9FFD70057C3C9 /* Note.m */,
-				5008192D19AB28A80001DA4F /* TextColor.h */,
-				5008192E19AB28A80001DA4F /* TextColor.m */,
+				5088797C19AFE9BD0051F4F6 /* FontSelectViewController.h */,
+				5088797D19AFE9BD0051F4F6 /* FontSelectViewController.m */,
+				5088797B19AFE6820051F4F6 /* Data Model */,
 				50FE1E4D19AF5D03009E1FBB /* SelectColor */,
 				5017AFA519A9FD0600B96F57 /* Images.xcassets */,
 				5017AF9819A9FD0600B96F57 /* Supporting Files */,
@@ -141,6 +141,19 @@
 				5017AFB019A9FD0700B96F57 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5088797B19AFE6820051F4F6 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				506480A919A9FFD70057C3C9 /* Note.h */,
+				506480AA19A9FFD70057C3C9 /* Note.m */,
+				5008192D19AB28A80001DA4F /* TextColor.h */,
+				5008192E19AB28A80001DA4F /* TextColor.m */,
+				503D5C7119AAE52B004C6821 /* DataModel.h */,
+				503D5C7219AAE52B004C6821 /* DataModel.m */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		50FE1E4D19AF5D03009E1FBB /* SelectColor */ = {
@@ -253,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5017AF9E19A9FD0600B96F57 /* AppDelegate.m in Sources */,
+				5088797E19AFE9BD0051F4F6 /* FontSelectViewController.m in Sources */,
 				506480A819A9FE2F0057C3C9 /* AllNotesViewController.m in Sources */,
 				5008192F19AB28A80001DA4F /* TextColor.m in Sources */,
 				5017AF9B19A9FD0600B96F57 /* main.m in Sources */,

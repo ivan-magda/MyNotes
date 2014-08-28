@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorSelectViewController.h"
+#import "FontSelectViewController.h"
 
 @class DetailNoteViewController;
 @class Note;
@@ -21,7 +22,8 @@
 @end
 
 @interface DetailNoteViewController : UIViewController <UITextViewDelegate,
-                                                        ColorSelectViewControllerProtocol>
+                                                        ColorSelectViewControllerProtocol,
+                                                        FontSelectViewControllerProtocol>
 
 @property (nonatomic, weak) Note *itemToShow;
 

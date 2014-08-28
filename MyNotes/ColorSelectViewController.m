@@ -9,10 +9,6 @@
 #import "ColorSelectViewController.h"
 #import "UIImageView+ColorSelectUpdateColor.h"
 #import "TextColor.h"
-//#import "Note.h"
-
-
-//static const NSInteger kNumberOfTextSizes = 24;
 
 @interface ColorSelectViewController ()
 
@@ -20,9 +16,6 @@
 
 @implementation ColorSelectViewController {
     TextColor *_textColor;
-  //  NSInteger _fontSize;
-  //  NSArray *_textFamily;
-  //  NSString *_fontName;
 }
 
 - (void)viewDidLoad
@@ -33,18 +26,8 @@
                                                green:self.textColorToShow.greenColor
                                                 blue:self.textColorToShow.blueColor];
     
-  //  _textFamily = [UIFont familyNames];
-  //  self.textLabel.text = self.noteToShow.text;
-    
-//    _fontSize = self.noteToShow.textSize;
-//    _fontName = self.noteToShow.textFamily;
-//    [self.picker selectRow:_fontSize - 1 inComponent:0 animated:NO];
-//    [self.picker selectRow:[_textFamily indexOfObject:_fontName] inComponent:1 animated:NO];
-    
     [self.colorToShow updateBackgroundColorWithTextColor:_textColor];
     [self updateValuesOfColorSliders];
-    
-    //[self updateFontForText];
 }
 
 
