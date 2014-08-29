@@ -146,12 +146,12 @@
 		5088797B19AFE6820051F4F6 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				503D5C7119AAE52B004C6821 /* DataModel.h */,
+				503D5C7219AAE52B004C6821 /* DataModel.m */,
 				506480A919A9FFD70057C3C9 /* Note.h */,
 				506480AA19A9FFD70057C3C9 /* Note.m */,
 				5008192D19AB28A80001DA4F /* TextColor.h */,
 				5008192E19AB28A80001DA4F /* TextColor.m */,
-				503D5C7119AAE52B004C6821 /* DataModel.h */,
-				503D5C7219AAE52B004C6821 /* DataModel.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
