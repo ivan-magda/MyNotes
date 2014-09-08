@@ -100,6 +100,7 @@
 		5017AF9719A9FD0600B96F57 /* MyNotes */ = {
 			isa = PBXGroup;
 			children = (
+				509A6E4519BD85FE00BAC40B /* iPad */,
 				5017AF9C19A9FD0600B96F57 /* AppDelegate.h */,
 				5017AF9D19A9FD0600B96F57 /* AppDelegate.m */,
 				5017AFA219A9FD0600B96F57 /* Main.storyboard */,
@@ -154,6 +155,13 @@
 				5008192E19AB28A80001DA4F /* TextColor.m */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		509A6E4519BD85FE00BAC40B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		50FE1E4D19AF5D03009E1FBB /* SelectColor */ = {
@@ -390,8 +398,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -401,8 +411,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = MyNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
